@@ -10,7 +10,12 @@ class TodoList extends Component{
 
     renderList(){
         return this.props.todos.map((item, index) => {
-            return <li className="collection-item" key={index}>{item.title}</li>;
+            console.log("To do item: ",item);
+            return (
+                <li className="collection-item" key={index}>
+                    <Link to={`/item/${item._id}`}>{item.title}</Link>
+                </li>
+            );
         })
     }
 
