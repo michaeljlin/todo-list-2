@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getAll } from "../actions";
+import { Link } from 'react-router-dom';
 
 class TodoList extends Component{
     componentDidMount(){
@@ -15,9 +16,13 @@ class TodoList extends Component{
 
     render(){
         return(
-            <ul className="collection">
-                {this.renderList()}
-            </ul>
+            <div>
+                <h1 className="center-align">To do list v2</h1>
+                <Link className="btn" to="/add-item">Add Item</Link>
+                <ul className="collection">
+                    {this.renderList()}
+                </ul>
+            </div>
         )
     }
 }
