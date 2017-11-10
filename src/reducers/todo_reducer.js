@@ -13,6 +13,9 @@ export default function(state = DEFAULT_STATE, action){
         case types.TOGGLE_COMPLETE:
             // console.log('TOGGLE COMPLETE: ', action.payload);
             return {...state, single:action.payload.data.todo};
+        case types.DELETE_ITEM:
+            console.log('DELETE ITEM: ', action.payload);
+            return state;
         default:
             return state;
     }
