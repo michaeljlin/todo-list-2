@@ -8,6 +8,27 @@ class TodoList extends Component{
         this.props.getAll();
     }
 
+    // shouldComponentUpdate(nextProps){
+    //     console.log('this props.todos: ', this.props.todos);
+    //     console.log('nextProps.todos: ',nextProps.todos);
+    //
+    //     if(this.props.todos !== nextProps.todos){
+    //         this.render();
+    //     }
+    //
+    //     return this.props.todos !== nextProps.todos;
+    // }
+
+    // componentWillReceiveProps(nextProps){
+    //     if(this.props.todos !== nextProps.todos){
+    //         this.render();
+    //     }
+    // }
+
+    // componentDidUpdate(){
+    //     this.render();
+    // }
+
     renderList(){
         return this.props.todos.map((item, index) => {
             console.log("To do item: ",item);
