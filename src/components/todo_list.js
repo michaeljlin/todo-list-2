@@ -42,7 +42,7 @@ class TodoList extends Component{
 
     renderCompleted(){
         return this.props.todos.map((item, index) => {
-            console.log("To do item: ",item);
+            // console.log("To do item: ",item);
 
             if(item.complete){
                 return (
@@ -56,7 +56,7 @@ class TodoList extends Component{
 
     renderIncomplete(){
         return this.props.todos.map((item, index) => {
-            console.log("To do item: ",item);
+            // console.log("To do item: ",item);
 
             if(!item.complete){
                 return (
