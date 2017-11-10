@@ -33,7 +33,7 @@ class SingleItem extends Component{
                 <h3>{single.title}</h3>
                 <p>Details: {single.details}</p>
                 <p>Created By: {single.userId} on {Date(parseInt(single.created))}</p>
-                <p>Status: {single.complete ? `Item Completed` : 'Item Incomplete'}</p>
+                <p>Status: {single.complete ? 'Item Completed' : 'Item Incomplete'}</p>
                 <button onClick={()=>this.toggleComplete()} className={`btn ${single.complete ? 'yellow darken-2' : 'green'}`}>{single.complete ? 'Restore' : 'Complete'}</button>
                 <Link onClick={()=>this.toggleDelete()} className="btn red darken-2" style={{marginLeft: '8px'}} to="/">Delete</Link>
                 <Link className="btn blue darken-2 right-align" to="/" style={{marginLeft: '8px'}}>Go Back</Link>

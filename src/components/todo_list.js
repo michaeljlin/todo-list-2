@@ -12,21 +12,60 @@ class TodoList extends Component{
         return this.props.todos.map((item, index) => {
             console.log("To do item: ",item);
             return (
-                <li className="collection-item" key={index}>
-                    <Link to={`/item/${item._id}`}>{item.title}</Link>
+                <li className={`collection-item darken-2 ${item.complete ? 'green' : 'red'}`} key={index}>
+                    <Link to={`/item/${item._id}`} style={{color: 'white'}}>{item.title}</Link>
                 </li>
             );
         })
     }
 
+    renderCompleted(){
+        return this.props.todos.map((item, index) => {
+            console.log("To do item: ",item);
+
+            if(item.complete){
+                return (
+                    <li className={`collection-item darken-2 ${item.complete ? 'green' : 'red'}`} key={index}>
+                        <Link to={`/item/${item._id}`} style={{color: 'white'}}>{item.title}</Link>
+                    </li>
+                );
+            }
+        })
+    }
+
+    renderIncomplete(){
+        return this.props.todos.map((item, index) => {
+            console.log("To do item: ",item);
+
+            if(!item.complete){
+                return (
+                    <li className={`collection-item darken-2 ${item.complete ? 'green' : 'red'}`} key={index}>
+                        <Link to={`/item/${item._id}`} style={{color: 'white'}}>{item.title}</Link>
+                    </li>
+                );
+            }
+        })
+    }
+
     render(){
         return(
-            <div>
+            <div className="container">
                 <h1 className="center-align">To do list v2</h1>
                 <Link className="btn" to="/add-item">Add Item</Link>
-                <ul className="collection">
-                    {this.renderList()}
-                </ul>
+                <div className="row">
+                    <div className="col s6">
+                        <h4 className="center-align">Completed</h4>
+                        <ul className="collection">
+                            {this.renderCompleted()}
+                        </ul>
+                    </div>
+                    <div className="col s6">
+                        <h4 className="center-align">Incomplete</h4>
+                        <ul className="collection">
+                            {this.renderIncomplete()}
+                        </ul>
+                    </div>
+                </div>
             </div>
         )
     }
